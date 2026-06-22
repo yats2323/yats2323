@@ -1,0 +1,13 @@
+bin/
+obj/
+publish/
+*.user
+*.suo
+.vs/
+*.log
+*.zip
+*.7z
+**/packages/
+.idea/
+*.db
+*.cache

@@ -1,0 +1,21 @@
+To upload your project to GitHub and create a release with the installer:
+
+1) Initialize git and commit
+cd C:\Users\2323\source\repos\WinFormsApp1
+git init
+git add .
+git commit -m "Initial commit"
+
+2) Create GitHub repo using gh (optional)
+gh repo create your-username/WinFormsApp1 --public --source=. --remote=origin --push
+
+3) Create a tag and push to trigger the workflow
+git tag v1.0.0
+git push origin v1.0.0
+
+4) If you want an installer, run Inno Setup locally and point it to inno\\WinFormsApp1.iss after you produce the publish artifact.
+
+Notes:
+- The GitHub Actions workflow (build-and-release.yml) will run on tag push, build, publish single-file, attach artifacts and create a GitHub release.
+- You must supply GITHUB_TOKEN automatically provided by Actions; no extra secrets required for this basic flow.
+- You can customize the workflow runtime or artifact names as needed.
